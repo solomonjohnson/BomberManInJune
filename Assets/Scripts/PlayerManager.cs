@@ -12,6 +12,12 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField]
     float speedFactor = 1f;
+
+
+
+    [SerializeField]
+    BombController bomb;
+
     private void Start()
     {
         tiles.CreateLevel();
@@ -54,6 +60,14 @@ public class PlayerManager : MonoBehaviour
             transform.position = (Vector3)nextTilePos;
 
         currentTile = new Vector2(i, j);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (Input.GetKey(KeyCode.Space))
+         {
+            Instantiate(bomb.bombObj, collision.transform);
+        }
     }
 
 }
