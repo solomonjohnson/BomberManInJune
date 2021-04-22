@@ -1,0 +1,9 @@
+# Directories
+.vs/
+Library/
+Logs/
+Temp/
+obj/
+
+# Files
+*.collabignore
