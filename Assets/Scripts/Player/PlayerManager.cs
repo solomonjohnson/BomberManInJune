@@ -27,11 +27,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyUp(KeyCode.W)) MoveNextTile(currentTile.x - 1, currentTile.y);
-        //if (Input.GetKeyUp(KeyCode.S)) MoveNextTile(currentTile.x + 1, currentTile.y);
-        //if (Input.GetKeyUp(KeyCode.A)) MoveNextTile(currentTile.x, currentTile.y - 1);
-        //if (Input.GetKeyUp(KeyCode.D)) MoveNextTile(currentTile.x, currentTile.y + 1);
-
         MovePlayer();
     }
 

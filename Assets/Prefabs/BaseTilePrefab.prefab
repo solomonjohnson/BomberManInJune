@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6049397903651745890}
   - component: {fileID: 5915660983718767702}
   - component: {fileID: -5526815999327729574}
+  - component: {fileID: -2470945091222553609}
   m_Layer: 0
-  m_Name: unnamed
+  m_Name: BaseTilePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,3 +109,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0159045}
   m_EdgeRadius: 0
+--- !u!114 &-2470945091222553609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7093758731536134406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cde499c3e36ac142a8d068d4cdb10c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
