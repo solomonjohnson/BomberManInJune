@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     BombController bomb;
 
-    private void Start()
+    private void Awake()
     {
         tiles.CreateLevel();
         Vector2 positionSpawn = tiles.tileArray[0, 0].transform.position;

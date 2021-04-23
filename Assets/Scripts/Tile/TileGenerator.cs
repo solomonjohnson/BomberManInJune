@@ -11,6 +11,25 @@ public class TileGenerator : MonoBehaviour
     GameObject BlockTilePrefab;
 
     public AbstractTile[,] tileArray = new AbstractTile[Constants.RowCount, Constants.ColumnCount];
+
+    public AbstractTile this[int row ,int column]
+    {
+        get
+        {
+            try
+            {
+                return tileArray[row, column];
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+        }
+        set
+        {
+            tileArray[row, column] = value;
+        }
+    }
     
     public void CreateLevel()
     {
