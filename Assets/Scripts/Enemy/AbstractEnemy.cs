@@ -51,6 +51,8 @@ public abstract class AbstractEnemy : MonoBehaviour
 
     }
 
+    List<BaseTile> Get
+
     //Vector2Int GetJunction()
     //{
     //    TileGenerator tileGenerator;
