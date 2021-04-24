@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BaseTile : AbstractTile
 {
-    public bool IsJunction(TileGenerator tiles)
-    {
-        return tiles[TilePosition.x + 1, TilePosition.y] is BaseTile ||
-        tiles[TilePosition.x + 1, TilePosition.y] is BaseTile ||
-        tiles[TilePosition.x + 1, TilePosition.y] is BaseTile ||
-        tiles[TilePosition.x + 1, TilePosition.y] is BaseTile;
-    }
+  public DestructableTile destructableTile;
+
+  public bool IsJunction(TileGenerator tiles)
+  {
+    return tiles[TilePosition.x + 1, TilePosition.y] is BaseTile ||
+    tiles[TilePosition.x + 1, TilePosition.y] is BaseTile ||
+    tiles[TilePosition.x + 1, TilePosition.y] is BaseTile ||
+    tiles[TilePosition.x + 1, TilePosition.y] is BaseTile;
+  }
 }
