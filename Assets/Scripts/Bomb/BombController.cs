@@ -6,13 +6,6 @@ using UnityEngine;
 public class BombController : MonoBehaviour
 {
   public  GameObject bombObj;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+  public bool bombActive;
 
 }
