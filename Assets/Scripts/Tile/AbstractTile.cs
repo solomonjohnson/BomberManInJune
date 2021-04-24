@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class AbstractTile : MonoBehaviour
 {
-    public Vector2Int TilePosition { get; set; }
+   public Vector2Int TilePosition;
 }

@@ -156,6 +156,7 @@ MonoBehaviour:
     type: 3}
   DestructableTilePrefab: {fileID: 7093758731536134406, guid: f2f30e6272de4a245bffb350f0683559,
     type: 3}
+  BaseTileList: []
 --- !u!4 &150978604
 Transform:
   m_ObjectHideFlags: 0
@@ -214,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombObj: {fileID: 1642383526703525889, guid: 53914b3ab81b64343b05cd5a66b23dcf, type: 3}
+  bombActive: 0
 --- !u!1 &1233675900
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles: {fileID: 150978603}
   speedFactor: 1
-  bomb: {fileID: 349050434}
+  bombController: {fileID: 349050434}
 --- !u!1 &1273143010 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8114223829693046737, guid: 50f8af1e0e49cc943a6cf7734db3c2c5,
