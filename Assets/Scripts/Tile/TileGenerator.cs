@@ -17,6 +17,7 @@ public class TileGenerator : MonoBehaviour
 
    public void GenerateBorder()
    {
+      Constants.ColumnCount++;
       GameObject obj;
       for (int i = 0; i < Constants.ColumnCount + 1; i++)
       {
