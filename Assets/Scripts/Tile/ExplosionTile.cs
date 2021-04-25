@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class ExplosionTile : MonoBehaviour
 {
-   private void OnTriggerEnter2D(Collider2D collision)
+   private void OnTriggerStay2D(Collider2D collision)
    {
       if (collision.gameObject.CompareTag("Player"))
-         Debug.Log("Player collided");
+         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(1);
+         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
 
       if (collision.gameObject.CompareTag("Enemy"))
+      {
          Destroy(collision.gameObject);
+      }
    }
 }

@@ -13,6 +13,8 @@ public class EnemyManager : MonoBehaviour
    [SerializeField]
    TileManager tileManager;
 
+   public List<AbstractEnemy> enemies = new List<AbstractEnemy>();
+
    // Start is called before the first frame update
    void Start()
    {
@@ -28,6 +30,8 @@ public class EnemyManager : MonoBehaviour
          obj.GetComponent<AbstractEnemy>().tiles = tileManager;
          var baseTile = tileManager.BaseTileList[Random.Range(0, tileManager.BaseTileList.Count)];
          obj.GetComponent<AbstractEnemy>().CurrentTile = baseTile;
+         enemies.Add(obj.GetComponent<AbstractEnemy>());
+         obj.GetComponent<AbstractEnemy>().EnemyManager = this;
       }
    }
 

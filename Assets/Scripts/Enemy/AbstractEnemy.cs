@@ -15,6 +15,8 @@ public abstract class AbstractEnemy : MonoBehaviour
 
    bool destReached = true;
 
+   public EnemyManager EnemyManager;
+
    // Start is called before the first frame update
    void Start()
    {
@@ -51,6 +53,16 @@ public abstract class AbstractEnemy : MonoBehaviour
          List<BaseTile> junctionTiles = CurrentTile.GetJunction(tiles);
          nextDestination = junctionTiles[UnityEngine.Random.Range(0, junctionTiles.Count)];
          destReached = false;
+      }
+   }
+
+   private void OnDestroy()
+   {
+      EnemyManager.enemies.Remove(this);
+      if(EnemyManager.enemies.Count()==0 )
+      {
+         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(1);
+         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
       }
    }
 }
