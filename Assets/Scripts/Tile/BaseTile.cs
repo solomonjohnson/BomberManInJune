@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseTile : AbstractTile
 {
 
-   public bool IsJunction(TileGenerator tiles)
+   public bool IsJunction(TileManager tiles)
    {
       int i = 0;
       if (TilePosition.x + 1 < Constants.RowCount)
@@ -23,7 +23,7 @@ public class BaseTile : AbstractTile
       return i > 0;
    }
 
-   public List<BaseTile> GetJunction(TileGenerator tiles)
+   public List<BaseTile> GetJunction(TileManager tiles)
    {
       List<BaseTile> tilesList = new List<BaseTile>();
 

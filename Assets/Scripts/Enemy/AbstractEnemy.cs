@@ -14,7 +14,7 @@ public abstract class AbstractEnemy : MonoBehaviour
 
 
    [SerializeField]
-   TileGenerator tiles;
+   TileManager tiles;
 
    bool destReached = true;
 

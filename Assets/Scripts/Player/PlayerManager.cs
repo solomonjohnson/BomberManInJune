@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
   [SerializeField]
-  TileGenerator tiles;
+  TileManager tiles;
 
   Vector2 currentTile = new Vector2(0, 0);
 
@@ -20,7 +20,7 @@ public class PlayerManager : MonoBehaviour
 
   private void Awake()
   {
-    tiles.CreateLevel();
+    //tiles.CreateLevel();
     Vector2 positionSpawn = tiles.tileArray[0, 0].transform.position;
     SpawnPlayer(positionSpawn);
   }

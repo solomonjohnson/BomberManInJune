@@ -15,60 +15,34 @@ public class TileGenerator : MonoBehaviour
    GameObject DestructableTilePrefab;
 
 
-   public AbstractTile[,] tileArray = new AbstractTile[Constants.RowCount, Constants.ColumnCount];
-   public List<BaseTile> BaseTileList = new List<BaseTile>();
-
-   public AbstractTile this[int row, int column]
-   {
-      get
-      {
-         try
-         {
-            return tileArray[row, column];
-         }
-         catch (System.Exception ex)
-         {
-            throw ex;
-         }
-      }
-      set
-      {
-         tileArray[row, column] = value;
-      }
-   }
-
-   public void CreateLevel()
-   {
-      GenerateBorder();
-      GenerateTiles();
-   }
-
-   private void GenerateBorder()
+   public void GenerateBorder()
    {
       GameObject obj;
-      for (int i = 0; i < Constants.ColumnCount+1; i++)
+      for (int i = 0; i < Constants.ColumnCount + 1; i++)
       {
          obj = Instantiate(BlockTilePrefab, transform);
          obj.transform.position = new Vector2(i, 1);
 
          obj = Instantiate(BlockTilePrefab, transform);
-         obj.transform.position = new Vector2(i-1, -Constants.ColumnCount);
+         obj.transform.position = new Vector2(i - 1, -Constants.RowCount);
 
       }
 
-      for (int i = 0; i < Constants.RowCount+1; i++)
+      for (int i = 0; i < Constants.RowCount + 1; i++)
       {
          obj = Instantiate(BlockTilePrefab, transform);
-         obj.transform.position = new Vector2(Constants.RowCount, -i);
+         obj.transform.position = new Vector2(Constants.ColumnCount, -i);
 
          obj = Instantiate(BlockTilePrefab, transform);
-         obj.transform.position = new Vector2(-1, -i+1);
+         obj.transform.position = new Vector2(-1, -i + 1);
       }
    }
 
-   void GenerateTiles()
+   public (List<BaseTile> baseTiles, AbstractTile[,] tiles) GenerateTiles()
    {
       GameObject gameObject;
+      TileManager manager = new TileManager();
+
       for (int i = 0; i < Constants.RowCount; i++)
          for (int j = 0; j < Constants.ColumnCount; j++)
          {
@@ -81,16 +55,17 @@ public class TileGenerator : MonoBehaviour
                if (UnityEngine.Random.Range(0, 100) < 80)
                {
                   gameObject = Instantiate(baseTilePrefab, transform);
-                  BaseTileList.Add(gameObject.GetComponent<BaseTile>());
+                  manager.BaseTileList.Add(gameObject.GetComponent<BaseTile>());
                }
                else
                   gameObject = Instantiate(DestructableTilePrefab, transform);
             }
             gameObject.transform.position = new Vector2(j, -i);
             gameObject.GetComponent<AbstractTile>().TilePosition = new Vector2Int(i, j);
-            tileArray[i, j] = gameObject.GetComponent<AbstractTile>();
+           manager.tileArray[i, j] = gameObject.GetComponent<AbstractTile>();
          }
 
       transform.position = new Vector2(-Constants.ColumnCount / 2 + 0.5f, Constants.RowCount / 2 - 0.5f);
+      return (manager.BaseTileList, manager.tileArray);
    }
 }

@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 150978604}
   - component: {fileID: 150978603}
+  - component: {fileID: 150978605}
   m_Layer: 0
   m_Name: TileManager
   m_TagString: Untagged
@@ -156,7 +157,6 @@ MonoBehaviour:
     type: 3}
   DestructableTilePrefab: {fileID: 7093758731536134406, guid: f2f30e6272de4a245bffb350f0683559,
     type: 3}
-  BaseTileList: []
 --- !u!4 &150978604
 Transform:
   m_ObjectHideFlags: 0
@@ -171,6 +171,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &150978605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150978602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3bda6d4a396eb744a49a834d0cafb3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseTileList: []
+  tileFactory: {fileID: 150978603}
 --- !u!1 &349050432
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec89e31d802a1ce45bc35ba5f94e2400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles: {fileID: 150978603}
+  tiles: {fileID: 150978605}
   speedFactor: 1
   bombController: {fileID: 349050434}
 --- !u!1 &1273143010 stripped
@@ -388,7 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
   nextDestination: {fileID: 0}
-  tiles: {fileID: 150978603}
+  tiles: {fileID: 150978605}
 --- !u!1 &1349640667
 GameObject:
   m_ObjectHideFlags: 0
