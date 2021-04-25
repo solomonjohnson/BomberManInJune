@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-  public BombController controller;
+   public BombController BombController;
+   public BaseTile CurrentTile;
+   // Start is called before the first frame update
+   void OnEnable()
+   {
+      //CurrentTile.GetCrossTiles(3,controller.ma);
+      Invoke(nameof(ExplodeBomb), 5f);
+   }
 
-  // Start is called before the first frame update
-  void OnEnable()
-  {
-    Invoke(nameof(ExplodeBomb), 5f);
-  }
-
-  void ExplodeBomb()
-  {
-    controller.bombActive = false;
-    Destroy(this.gameObject);
-  }
+   void ExplodeBomb()
+   {
+      BombController.bombActive = false;
+      var list = CurrentTile.GetCrossTiles(3, BombController.manager);
+      foreach (var item in list)
+      {
+         item.ExplodTile(BombController.manager);
+      }
+      //controller.bombExploded?.Invoke(this, CurrentTile);
+      Destroy(this.gameObject);
+   }
 }

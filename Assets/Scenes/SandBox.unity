@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseTileList: []
-  tileFactory: {fileID: 150978603}
+  TileFactory: {fileID: 0}
 --- !u!1 &349050432
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bombObj: {fileID: 1642383526703525889, guid: 53914b3ab81b64343b05cd5a66b23dcf, type: 3}
   bombActive: 0
+  manager: {fileID: 150978605}
 --- !u!1 &1233675900
 GameObject:
   m_ObjectHideFlags: 0

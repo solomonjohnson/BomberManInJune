@@ -68,4 +68,13 @@ public class TileGenerator : MonoBehaviour
       transform.position = new Vector2(-Constants.ColumnCount / 2 + 0.5f, Constants.RowCount / 2 - 0.5f);
       return (manager.BaseTileList, manager.tileArray);
    }
+
+   public void CreateBaseTileAtPos(AbstractTile t, TileManager manager)
+   {
+      GameObject obj = Instantiate(baseTilePrefab, transform) ;
+      obj.transform.position = t.transform.position;
+      manager.tileArray[t.TilePosition.x, t.TilePosition.y] = obj.GetComponent<AbstractTile>();
+      manager.BaseTileList.Add(obj.GetComponent<BaseTile>());
+      obj.GetComponent<AbstractTile>().TilePosition = t.TilePosition;
+   }
 }

@@ -9,8 +9,7 @@ public class TileManager : MonoBehaviour
    public AbstractTile[,] tileArray = new AbstractTile[Constants.RowCount, Constants.ColumnCount];
    public List<BaseTile> BaseTileList = new List<BaseTile>();
 
-   [SerializeField]
-   TileGenerator tileFactory;
+   public TileGenerator TileFactory;
 
    public AbstractTile this[int row, int column]
    {
@@ -34,9 +33,9 @@ public class TileManager : MonoBehaviour
    // Start is called before the first frame update
    void Awake()
    {
-      tileFactory = GetComponent<TileGenerator>();
-      tileFactory.GenerateBorder();
-      (BaseTileList, tileArray) = tileFactory.GenerateTiles();
+      TileFactory = GetComponent<TileGenerator>();
+      TileFactory.GenerateBorder();
+      (BaseTileList, tileArray) = TileFactory.GenerateTiles();
    }
 
    // Update is called once per frame

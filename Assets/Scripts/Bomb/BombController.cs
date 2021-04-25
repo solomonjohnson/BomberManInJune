@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BombController : MonoBehaviour
 {
-  public  GameObject bombObj;
-  public bool bombActive;
-
+   public GameObject bombObj;
+   public bool bombActive;
+   public TileManager manager;
+   public EventHandler<TileManager> bombExploded;
 }

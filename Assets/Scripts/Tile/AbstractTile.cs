@@ -5,4 +5,7 @@ using UnityEngine;
 public abstract class AbstractTile : MonoBehaviour
 {
    public Vector2Int TilePosition;
+
+   public abstract void ExplodTile(TileManager tiles);
+
 }
