@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -48,6 +50,16 @@ public class EnemyManager : MonoBehaviour
          obj.GetComponent<AbstractEnemy>().CurrentTile = baseTile;
          enemies.Add(obj.GetComponent<AbstractEnemy>());
          obj.GetComponent<AbstractEnemy>().EnemyManager = this;
+      }
+   }
+
+   private void Update()
+   {
+      if (enemies.Count() <= 0)
+      {
+         //SceneManager.UnloadScene(SceneManager.GetActiveScene().name);
+         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
       }
    }
 
