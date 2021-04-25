@@ -6,10 +6,9 @@ public class Bomb : MonoBehaviour
 {
    public BombController BombController;
    public BaseTile CurrentTile;
-   // Start is called before the first frame update
+
    void OnEnable()
    {
-      //CurrentTile.GetCrossTiles(3,controller.ma);
       Invoke(nameof(ExplodeBomb), 5f);
    }
 

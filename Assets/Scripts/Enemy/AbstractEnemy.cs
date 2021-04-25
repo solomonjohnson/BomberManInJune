@@ -6,23 +6,19 @@ using System.Linq;
 
 public abstract class AbstractEnemy : MonoBehaviour
 {
-   [SerializeField]
-   BaseTile currentTile;
+   public BaseTile CurrentTile;
 
    [SerializeField]
    BaseTile nextDestination;
 
-
-   [SerializeField]
-   TileManager tiles;
+   public TileManager tiles;
 
    bool destReached = true;
 
    // Start is called before the first frame update
    void Start()
    {
-      currentTile = tiles.BaseTileList[0];
-      transform.position = currentTile.transform.position;
+      transform.position = CurrentTile.transform.position;
    }
 
    // Update is called once per frame
@@ -40,7 +36,7 @@ public abstract class AbstractEnemy : MonoBehaviour
 
       if (transform.position == nextDestination.transform.position)
       {
-         currentTile = tile;
+         CurrentTile = tile;
          destReached = true;
       }
    }
@@ -50,11 +46,11 @@ public abstract class AbstractEnemy : MonoBehaviour
       if (UnityEngine.Random.Range(0, 100) > 50)
          return;
 
-      if(currentTile.IsJunction(tiles))
+      if (CurrentTile.IsJunction(tiles))
       {
-         List<BaseTile> junctionTiles = currentTile.GetJunction(tiles);
+         List<BaseTile> junctionTiles = CurrentTile.GetJunction(tiles);
          nextDestination = junctionTiles[UnityEngine.Random.Range(0, junctionTiles.Count)];
-         destReached = false; 
+         destReached = false;
       }
    }
 }

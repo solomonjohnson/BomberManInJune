@@ -62,20 +62,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Bomb.cs" />
-    <Compile Include="Assets\ExplosionTile.cs" />
+    <Compile Include="Assets\Scripts\Bomb\Bomb.cs" />
     <Compile Include="Assets\Scripts\Bomb\BombController.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
     <Compile Include="Assets\Scripts\Enemy\AbstractEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\BlueEnemy.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Icharacter.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Tile\AbstractTile.cs" />
     <Compile Include="Assets\Scripts\Tile\BaseTile.cs" />
     <Compile Include="Assets\Scripts\Tile\BlockTile.cs" />
     <Compile Include="Assets\Scripts\Tile\DestructableTile.cs" />
+    <Compile Include="Assets\Scripts\Tile\ExplosionTile.cs" />
     <Compile Include="Assets\Scripts\Tile\TileGenerator.cs" />
-    <Compile Include="Assets\TileManager.cs" />
+    <Compile Include="Assets\Scripts\Tile\TileManager.cs" />
     <None Include="Assets\Knight Files\Read Me.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
