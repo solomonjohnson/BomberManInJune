@@ -17,8 +17,10 @@ public abstract class AbstractEnemy : MonoBehaviour
 
    public EnemyManager EnemyManager;
 
+   protected float speedFactor;
+
    // Start is called before the first frame update
-   void Start()
+   protected void Start()
    {
       transform.position = CurrentTile.transform.position;
    }
