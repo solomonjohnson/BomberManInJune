@@ -56,13 +56,8 @@ public abstract class AbstractEnemy : MonoBehaviour
       }
    }
 
-   private void OnDestroy()
+   private void OnTriggerEnter2D(Collider2D collision)
    {
-      EnemyManager.enemies.Remove(this);
-      if(EnemyManager.enemies.Count()==0 )
-      {
-         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(1);
-         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
-      }
+      //if
    }
 }

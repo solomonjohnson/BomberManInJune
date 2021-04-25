@@ -535,7 +535,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79009217e7b98714a9798d304f4d0a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 8114223829693046737, guid: 50f8af1e0e49cc943a6cf7734db3c2c5,
+  BlueEnemyPrefab: {fileID: 8114223829693046737, guid: 50f8af1e0e49cc943a6cf7734db3c2c5,
     type: 3}
-  numEnemy: 5
+  BrownEnemyPrefab: {fileID: 8114223829693046737, guid: b86f3033814ff7f4f8516a89cc362beb,
+    type: 3}
+  numBlueEnemy: 3
+  numBrownEnemy: 2
   tileManager: {fileID: 150978605}
+  enemies: []
