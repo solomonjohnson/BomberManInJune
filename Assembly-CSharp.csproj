@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Enemy\BlueEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Icharacter.cs" />
+    <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Tile\AbstractTile.cs" />
     <Compile Include="Assets\Scripts\Tile\BaseTile.cs" />
