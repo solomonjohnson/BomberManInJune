@@ -58,6 +58,10 @@ public abstract class AbstractEnemy : MonoBehaviour
 
    private void OnTriggerEnter2D(Collider2D collision)
    {
-      //if
+      if(collision.gameObject.CompareTag("Player"))
+      {
+         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(1);
+         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+      }
    }
 }
