@@ -39,13 +39,31 @@ public class TileGenerator : MonoBehaviour
 
    public void CreateLevel()
    {
+      GenerateBorder();
       GenerateTiles();
-      //GenerateBorder();
    }
 
    private void GenerateBorder()
    {
-      throw new NotImplementedException();
+      GameObject obj;
+      for (int i = 0; i < Constants.ColumnCount+1; i++)
+      {
+         obj = Instantiate(BlockTilePrefab, transform);
+         obj.transform.position = new Vector2(i, 1);
+
+         obj = Instantiate(BlockTilePrefab, transform);
+         obj.transform.position = new Vector2(i-1, -Constants.ColumnCount);
+
+      }
+
+      for (int i = 0; i < Constants.RowCount+1; i++)
+      {
+         obj = Instantiate(BlockTilePrefab, transform);
+         obj.transform.position = new Vector2(Constants.RowCount, -i);
+
+         obj = Instantiate(BlockTilePrefab, transform);
+         obj.transform.position = new Vector2(-1, -i+1);
+      }
    }
 
    void GenerateTiles()

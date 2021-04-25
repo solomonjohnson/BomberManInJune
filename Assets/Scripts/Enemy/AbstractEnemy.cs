@@ -12,11 +12,11 @@ public abstract class AbstractEnemy : MonoBehaviour
    [SerializeField]
    BaseTile nextDestination;
 
-   [SerializeField] MoveDirection moveDirection = MoveDirection.Right;
 
    [SerializeField]
    TileGenerator tiles;
 
+   bool destReached = true;
 
    // Start is called before the first frame update
    void Start()
@@ -28,95 +28,33 @@ public abstract class AbstractEnemy : MonoBehaviour
    // Update is called once per frame
    void Update()
    {
-         MoveToDirection(moveDirection);
-   }
-
-   private void MoveToDirection(MoveDirection direction)
-   {
-      AbstractTile nextTile = currentTile;
-      switch (direction)
-      {
-         case MoveDirection.Left:
-            if (!(currentTile.TilePosition.y - 1 < 0))
-               nextTile = tiles[currentTile.TilePosition.x, currentTile.TilePosition.y - 1];
-            MoveNext(nextTile);
-            break;
-         case MoveDirection.Right:
-            if (!(currentTile.TilePosition.y + 1 >= Constants.RowCount))
-               nextTile = tiles[currentTile.TilePosition.x, currentTile.TilePosition.y + 1];
-            MoveNext(nextTile);
-            break;
-         case MoveDirection.Up:
-            if (!(currentTile.TilePosition.x - 1 < 0))
-               nextTile = tiles[currentTile.TilePosition.x - 1, currentTile.TilePosition.y];
-            MoveNext(nextTile);
-            break;
-         case MoveDirection.Down:
-            if (!(currentTile.TilePosition.x + 1 >= Constants.ColumnCount))
-               nextTile = tiles[currentTile.TilePosition.x + 1, currentTile.TilePosition.y];
-            MoveNext(nextTile);
-            break;
-         default:
-            break;
-      }
-
-   }
-
-   void MoveNext(AbstractTile nextTile)
-   {
-      if (nextTile is BaseTile)
-      {
-         transform.position = Vector2.MoveTowards(transform.position, nextTile.transform.position, 2f * Time.deltaTime);
-
-         if (transform.position == nextTile.transform.position)
-         {
-            currentTile = nextTile as BaseTile;
-
-            if (currentTile.IsJunction(tiles))
-               ChangeToRandomDirection();
-         }
-      }
+      if (destReached)
+         GetNextTile();
       else
+         MoveToNext(nextDestination);
+   }
+
+   private void MoveToNext(BaseTile tile)
+   {
+      transform.position = Vector2.MoveTowards(transform.position, tile.transform.position, 2f * Time.deltaTime);
+
+      if (transform.position == nextDestination.transform.position)
       {
-         switch (moveDirection)
-         {
-            case MoveDirection.Left:
-               moveDirection = MoveDirection.Right;
-               break;
-            case MoveDirection.Right:
-               moveDirection = MoveDirection.Left;
-               break;
-            case MoveDirection.Up:
-               moveDirection = MoveDirection.Down;
-               break;
-            case MoveDirection.Down:
-               moveDirection = MoveDirection.Up;
-               break;
-            default:
-               break;
-         }
+         currentTile = tile;
+         destReached = true;
       }
    }
 
-
-   void ChangeToRandomDirection()
+   private void GetNextTile()
    {
-      if (currentTile.IsJunction(tiles))
+      if (UnityEngine.Random.Range(0, 100) > 50)
+         return;
+
+      if(currentTile.IsJunction(tiles))
       {
-         if (UnityEngine.Random.Range(0, 100) > 50)
-            return;
-
-         moveDirection = (MoveDirection)UnityEngine.Random.Range(0, 3);
-
+         List<BaseTile> junctionTiles = currentTile.GetJunction(tiles);
+         nextDestination = junctionTiles[UnityEngine.Random.Range(0, junctionTiles.Count)];
+         destReached = false; 
       }
    }
-
-   enum MoveDirection
-   {
-      Left,
-      Right,
-      Up,
-      Down
-   }
-
 }
